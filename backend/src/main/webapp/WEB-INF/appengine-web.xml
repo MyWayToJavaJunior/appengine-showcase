@@ -4,7 +4,12 @@
     <version>1</version>
     <threadsafe>true</threadsafe>
     <runtime>java8</runtime>
-    <module>backend</module>
+    <basic-scaling>
+        <max-instances>1</max-instances>
+        <idle-timeout>2m</idle-timeout>
+    </basic-scaling>
+
+    <service>backend</service>
 
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>

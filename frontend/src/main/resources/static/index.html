@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html data-ng-app="currencyConverter" data-ng-cloak>
+<head>
+    <title>USD currency monitoring application.</title>
+    <link rel="stylesheet" href="webjars/bootstrap/3.3.5/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="webjars/jquery/2.1.4/jquery.js"></script>
+    <script src="webjars/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="webjars/angularjs/1.4.8/angular.js"></script>
+    <script src="js/ccy.js"></script>
+</head>
+<body>
+<div class="container clearfix" ng-controller="CcyController as ccy">
+
+    <div class="col-md-12">
+        <div class="row">
+            <p class="bg-error">{{ccy.error}}</p>
+        </div>
+    </div>
+
+    <h2>Fresh currency rates for USD</h2>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="currency">Currency:</label>
+            <select id="currency" class="form-control" ng-model="ccy.selectedRate"
+                    ng-options="rate.currencyCode for rate in ccy.rates"></select>
+        </div>
+
+        <div class="form-group">
+            <label for="currencyInput">Amount:</label>
+            <input id="currencyInput" class="form-control" ng-model="ccy.amount"/>
+            <input type="button" class="btn btn-primary" value="Count" ng-click="ccy.count()"/>
+        </div>
+
+        <div class="form-group">
+            <label for="result">Result:</label>
+            <input id="result" class="form-control" type="text" value="{{ccy.result}}" readonly>
+        </div>
+
+        <div class="form-group pull-right">
+            <label for="searchBox">Filter:</label>
+            <input id="searchBox" class="form-control" ng-model="searchText"/>
+        </div>
+    </form>
+
+    <table class="table table-striped table-bordered" id="searchResults">
+        <tr>
+            <th>Currency</th>
+            <th>Rate to USD</th>
+            <th>Upload time</th>
+        </tr>
+        <tr ng-repeat="rate in ccy.rates | filter:searchText">
+            <td>{{rate.currencyCode}}</td>
+            <td>{{rate.value}}</td>
+            <td>{{rate.uploadTime}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

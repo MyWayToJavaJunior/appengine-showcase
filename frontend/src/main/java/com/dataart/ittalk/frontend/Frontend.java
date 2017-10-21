@@ -1,4 +1,4 @@
-package com.dataart.ittalk.backend;
+package com.dataart.ittalk.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

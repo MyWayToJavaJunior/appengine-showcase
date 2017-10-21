@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: appEngine
+
+server:
+  servlet-path: /api
+
+api:
+  key:
+  url: https://openexchangerates.org/api/latest.json?app_id={api_key}

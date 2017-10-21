@@ -1,0 +1,7 @@
+.form-inline {
+    padding: 5px;
+}
+
+.form-inline > * {
+    margin: 5px 3px !important;
+}

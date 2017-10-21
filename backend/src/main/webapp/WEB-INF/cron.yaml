@@ -1,0 +1,6 @@
+cron:
+
+- url: /api/update-currencies
+  description: "Update currencies for an application"
+  schedule: every 24 hours
+  target: backend
